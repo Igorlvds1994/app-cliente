@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Detalhes do Cliente</title>
+</head>
+<body>
+    <h1>Detalhes do Cliente</h1>
+    <p><strong>Nome:</strong> <span th:text="${cliente.nome}"></span></p>
+    <p><strong>Idade:</strong> <span th:text="${cliente.idade}"></span></p>
+    <p><strong>CPF:</strong> <span th:text="${cliente.cpf}"></span></p>
+    <p><strong>Email:</strong> <span th:text="${cliente.email}"></span></p>
+    
+    <!-- Link para voltar à lista de clientes -->
+    <a th:href="@{/clientes}">Voltar para a lista de clientes</a>
+</body>
+</html>

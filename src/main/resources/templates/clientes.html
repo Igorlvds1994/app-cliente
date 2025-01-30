@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Clientes</title>
+    
+      <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            padding-top: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #4CAF50;
+            margin: 10px;
+            display: inline-block;
+        }
+
+        a:hover {
+            color: #45a049;
+        }
+
+        .cliente-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .cliente-item {
+            background-color: #fafafa;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+
+        .cliente-item p {
+            margin: 5px 0;
+        }
+
+        .actions {
+            margin-top: 10px;
+        }
+
+        .actions a {
+            margin-right: 15px;
+            color: #ff6347;
+        }
+
+        .actions a:hover {
+            color: #e53e3e;
+        }
+    </style>
+</head>
+<body>
+     <div class="container">
+        <h1>Lista de Clientes</h1>
+        <a href="/cliente/novo">Novo Cliente</a>
+        <ul class="cliente-list">
+            <th:block th:each="cliente : ${clientes}">
+                <li class="cliente-item">
+                    <p><strong>Nome:</strong> <span th:text="${cliente.nome}">Nome</span></p>
+                    <p><strong>Idade:</strong> <span th:text="${cliente.idade}">Idade</span></p>
+                    <p><strong>CPF:</strong> <span th:text="${cliente.cpf}">CPF</span></p>
+                    <p><strong>Email:</strong> <span th:text="${cliente.email}">Email</span></p>
+                    <div class="actions">
+                        <a th:href="@{/cliente/editar/{id}(id=${cliente.id})}">Editar</a>
+                        <a th:href="@{/cliente/deletar/{id}(id=${cliente.id})}">Deletar</a>
+                    </div>
+                </li>
+            </th:block>
+        </ul>
+    </div>
+</body>
+</html>
